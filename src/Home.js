@@ -5,22 +5,22 @@ import { useHistory } from 'react-router-dom' // allowing us to use the history 
 export default function Home() {
   const history = useHistory();
 
-//   const routeToShop = () => {
-//     history.push("/item-list");
-//   }
+  const orderPizza = () => {
+    history.push("/pizza");
+  }
 
   return (
     <div className='home-wrapper'>
       <img
         className='home-image'
-        src="../Assets/Pizza.jpg"
+        src="https://source.unsplash.com/F6-U5fGAOik"
         alt=''
       />
       <button
-        // onClick={routeToShop}
+        onClick={orderPizza}
         className='md-button shop-button'
       >
-        Shop now!
+        Pizza?
       </button>
     </div>
   )
