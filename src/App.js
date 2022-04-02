@@ -7,8 +7,7 @@ const App = () => {
   return (
     <>
       <header>
-        <h1>Lambda Eats</h1>
-        <p>You can remove this code and create your own header</p>
+        <h1>Maximilian's Slice House</h1>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/pizza" id="order-pizza"> Order Pizza?</Link>
