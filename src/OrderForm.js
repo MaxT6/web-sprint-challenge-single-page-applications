@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const pizzaOrderData = [
-    {   customer: "",
-        pizzaSize: "",
-        specInst: "",
-    }
-]
 
-export default function OrderForm() {
-    const [formValues, setFormValues] = useState({ customer: "", pizzaSize: "", specInst: "" }); //setting SoS for orders parameters
-    const [orders, setOrders] = useState(pizzaOrderData);
+export default function OrderForm(props) {
+    const { values, update, submit } = props
 
     const change = (evt) => { //replaces value of key with input value
+        const name = evt.target.name;
+        const {value} = evt.target;
+        update(name, value);
+        // *** Commenting out below to see if migration worked ***
         //console.log("change", evt.target);
-        const { name, value } = evt.target;
-        setFormValues({...formValues, [name]: value})
+        // const { name, value } = evt.target;
+        // setFormValues({...formValues, [name]: value})
     }
 
-    const submit =(evt) => { //prevents the page from refreshing when form is submitted
+    const OnSubmit =(evt) => { //prevents the page from refreshing when form is submitted
         evt.preventDefault();
+        submit()
         //console.log("Submitting the form")
-        const newOrder = {
-            customer: formValues.customer.trim(),
-            specInst: formValues.specInst.trim(),
-        }
-        setOrders(orders.concat(newOrder));
-        setFormValues({customer: "", pizzaSize: "", specInst: "" })
+        // *** Commenting out below to see if migration worked ***
+        // const newOrder = {
+        //     customer: formValues.customer.trim(),
+        //     specInst: formValues.specInst.trim(),
+        // }
+        // setOrders(orders.concat(newOrder));
+        // setFormValues({customer: "", pizzaSize: "", specInst: "" })
     }
 
     return (
@@ -36,18 +35,20 @@ export default function OrderForm() {
                 {order.customer} your order has been received! Prepare for some pizza!!
                 </div>
         })} */}
-        <form onSubmit={submit} id='pizza-form'>
-            <label> Your Name Boss
+        <form onSubmit={OnSubmit} id='pizza-form'>
+            <label> Your Name, Boss
                 <input
-                    value={formValues.customer}
+                    value={values.customer}
                     type='text'
                     name='customer'
+                    placeholder='Your name goes here'
+                    // minLength='2'
                     id='name-input'
                     onChange={change}
                 />
             </label>
             <label> Pizza Size
-                <select name="pizzaSize" id="size-dropdown" onChange={change}>
+                <select value={values.pizzaSize} name="pizzaSize" id="size-dropdown" onChange={change}>
                     <option value="">-- Select size--</option>
                     <option value="small">18"</option>
                     <option value="medium">20"</option>
@@ -57,7 +58,7 @@ export default function OrderForm() {
             </label>
             <label> Special Instructions
                 <input
-                    value={formValues.specInst}
+                    value={values.specInst}
                     type='text'
                     name='specInst'
                     id='special-text'
