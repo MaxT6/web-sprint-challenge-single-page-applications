@@ -6,24 +6,34 @@ import OrderForm from './OrderForm';
 import axios from "axios";
 
 const initialFormValues = {   
-      name: "",
-      special: "",    
-      size: "",
-      anchovies: false,
-      nutsAndBolts: false,
-      spaghetti: false,
-      cosmicDust: false,
-  }
+  name: "",
+  special: "",    
+  size: "",
+  anchovies: false,
+  nutsAndBolts: false,
+  spaghetti: false,
+  cosmicDust: false,
+}
 
+// const initialFormErrors = {
+//   name: "",
+//   special: "",    
+//   size: "",
+// }
+
+const initialOrders = [];
+const initialDisabled = true
 
 const App = () => {
   
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(initialOrders);
   const [formValues, setFormValues] = useState(initialFormValues); //setting SoS for orders parameters
   const [formError, setFormError] = useState("");
+  // const [disabled, setDisabled] = useState(initialDisabled)
+
   
-  const updateForm = (inputName, inputValue) => {
-    setFormValues({...formValues, [inputName]: inputValue})
+  const inputChange = (name, value) => {
+    setFormValues({...formValues, [name]: value})
   }
 
   const submitForm = () => {
@@ -78,9 +88,9 @@ const App = () => {
           {formError && <p className="error">{formError}</p> }
           <OrderForm
             values={formValues}
-            update={updateForm}
+            change={inputChange}
             submit={submitForm} />
-
+          <h2>--- Submitted Orders ---</h2>
             {
             orders.map(order => {
             return (

@@ -2,13 +2,29 @@ import React from 'react';
 
 
 export default function OrderForm(props) {
-    const { values, update, submit } = props
+    const { 
+        values, 
+        submit,
+        change,
+        disabled,
+        errors,
+     } = props
 
-    const change = (evt) => { //replaces value of key with input value
-        const name = evt.target.name;
-        const {value} = evt.target;
-        update(name, value);
+    const onChange = (evt) => { //replaces value of key with input value
+        const {name, value, checked, type} = evt.target
+        //console.log(checked,type)
+        const valueToUse = type === 'checkbox' ? checked : value
+        change(name, valueToUse)
+        
+        
+        //*** updating deconstructing of variables. ***
+
+        // const name = evt.target.name;
+        // const {value} = evt.target;
+        // update(name, value);
+
         // *** Commenting out below to see if migration worked ***
+
         //console.log("change", evt.target);
         // const { name, value } = evt.target;
         // setFormValues({...formValues, [name]: value})
@@ -44,11 +60,11 @@ export default function OrderForm(props) {
                     placeholder='Your name goes here'
                     // minLength='2'
                     id='name-input'
-                    onChange={change}
+                    onChange={onChange}
                 />
             </label>
             <label> Pizza Size
-                <select value={values.size} name="size" id="size-dropdown" onChange={change}>
+                <select value={values.size} name="size" id="size-dropdown" onChange={onChange}>
                     <option value="">-- Select size--</option>
                     <option value="small">18"</option>
                     <option value="medium">20"</option>
@@ -62,7 +78,7 @@ export default function OrderForm(props) {
                     type='text'
                     name='special'
                     id='special-text'
-                    onChange={change}
+                    onChange={onChange}
                 />
             </label>
             <label> Anchovies
@@ -71,7 +87,7 @@ export default function OrderForm(props) {
                 type="checkbox"
                 name="anchovies"
                 id="checklist"
-                onChange={change}
+                onChange={onChange}
                 />
             </label>
              <label> Nuts and Bolts
@@ -80,7 +96,7 @@ export default function OrderForm(props) {
                 type="checkbox"
                 name="nutsAndBolts"
                 id="checklist"
-                onChange={change}
+                onChange={onChange}
                 />
             </label>
             <label> Spaghetti
@@ -89,7 +105,7 @@ export default function OrderForm(props) {
                 type="checkbox"
                 name="spaghetti"
                 id="checklist"
-                onChange={change}
+                onChange={onChange}
                 />
             </label>
             <label> Cosmic Dust
@@ -98,7 +114,7 @@ export default function OrderForm(props) {
                 type="checkbox"
                 name="cosmicDust"
                 id="checklist"
-                onChange={change}
+                onChange={onChange}
                 />
             </label>
             <label>
