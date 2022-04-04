@@ -20,11 +20,11 @@ export default function OrderForm(props) {
         //console.log("Submitting the form")
         // *** Commenting out below to see if migration worked ***
         // const newOrder = {
-        //     customer: formValues.customer.trim(),
-        //     specInst: formValues.specInst.trim(),
+        //     name: formValues.name.trim(),
+        //     special: formValues.special.trim(),
         // }
         // setOrders(orders.concat(newOrder));
-        // setFormValues({customer: "", pizzaSize: "", specInst: "" })
+        // setFormValues({name: "", size: "", special: "" })
     }
 
     return (
@@ -32,15 +32,15 @@ export default function OrderForm(props) {
         <h2>Pizza Order Form</h2>
         {/* {orders.map((order, idx)=> {
             return <div onSubmit={submit} key={idx}>
-                {order.customer} your order has been received! Prepare for some pizza!!
+                {order.name} your order has been received! Prepare for some pizza!!
                 </div>
         })} */}
         <form onSubmit={OnSubmit} id='pizza-form'>
             <label> Your Name, Boss
                 <input
-                    value={values.customer}
+                    value={values.name}
                     type='text'
-                    name='customer'
+                    name='name'
                     placeholder='Your name goes here'
                     // minLength='2'
                     id='name-input'
@@ -48,7 +48,7 @@ export default function OrderForm(props) {
                 />
             </label>
             <label> Pizza Size
-                <select value={values.pizzaSize} name="pizzaSize" id="size-dropdown" onChange={change}>
+                <select value={values.size} name="size" id="size-dropdown" onChange={change}>
                     <option value="">-- Select size--</option>
                     <option value="small">18"</option>
                     <option value="medium">20"</option>
@@ -58,9 +58,9 @@ export default function OrderForm(props) {
             </label>
             <label> Special Instructions
                 <input
-                    value={values.specInst}
+                    value={values.special}
                     type='text'
-                    name='specInst'
+                    name='special'
                     id='special-text'
                     onChange={change}
                 />

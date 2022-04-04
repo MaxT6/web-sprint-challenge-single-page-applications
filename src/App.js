@@ -6,9 +6,9 @@ import OrderForm from './OrderForm';
 import axios from "axios";
 
 const initialFormValues = {   
-      customer: "",
-      specInst: "",    
-      pizzaSize: "",
+      name: "",
+      special: "",    
+      size: "",
   }
 
 
@@ -24,20 +24,20 @@ const App = () => {
 
   const submitForm = () => {
     const newOrder = {
-      customer: formValues.customer.trim(),
-      specInst: formValues.specInst.trim(),
-      pizzaSize: formValues.pizzaSize,
+      name: formValues.name.trim(),
+      special: formValues.special.trim(),
+      size: formValues.size,
     }
     // *** commenting out to see if I will need axios or not to submit the data ***
-    if (!newOrder.customer) {
+    if (!newOrder.name) {
         setFormError("You must enter in your name boss");
         setFormValues(initialFormValues);
         return}
-      else if (newOrder.customer.length < 2) {
+      else if (newOrder.name.length < 2) {
         setFormError("name must be at least 2 characters");
         setFormValues(initialFormValues);
         return;}
-      else if (newOrder.pizzaSize === '') {
+      else if (newOrder.size === '') {
         setFormError("Come on boss, you gotta choose a size");
         setFormValues(initialFormValues);
         return;}
