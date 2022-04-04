@@ -9,6 +9,10 @@ const initialFormValues = {
       name: "",
       special: "",    
       size: "",
+      anchovies: false,
+      nutsAndBolts: false,
+      spaghetti: false,
+      cosmicDust: false,
   }
 
 
@@ -27,6 +31,7 @@ const App = () => {
       name: formValues.name.trim(),
       special: formValues.special.trim(),
       size: formValues.size,
+      toppings: ['anchovies', 'nutsAndBolts', 'spaghetti', 'cosmicDust'].filter(topping => !!formValues[topping])
     }
     // *** commenting out to see if I will need axios or not to submit the data ***
     if (!newOrder.name) {

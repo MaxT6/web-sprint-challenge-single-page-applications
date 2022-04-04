@@ -9,9 +9,10 @@ export default function Order(props) {
 
     return (
         <div>
-            <h2>{details.customer}</h2>
-            <p>Pizza Size: {details.pizzaSize}</p>
-            <p>Special Instructions: {details.specInst}</p>
+            <h2>{details.name}</h2>
+            <p>Pizza Size: {details.size}</p>
+            <p>Special Instructions: {details.special}</p>
+            <p>Toppings: {details.toppings}</p>
         </div>
     )
 

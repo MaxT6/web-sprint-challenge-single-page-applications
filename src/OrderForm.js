@@ -64,6 +64,44 @@ export default function OrderForm(props) {
                     id='special-text'
                     onChange={change}
                 />
+            </label>
+            <label> Anchovies
+                <input 
+                checked={values.anchovies}
+                type="checkbox"
+                name="anchovies"
+                id="checklist"
+                onChange={change}
+                />
+            </label>
+             <label> Nuts and Bolts
+                <input 
+                checked={values.nutsAndBolts}
+                type="checkbox"
+                name="nutsAndBolts"
+                id="checklist"
+                onChange={change}
+                />
+            </label>
+            <label> Spaghetti
+                <input 
+                checked={values.spaghetti}
+                type="checkbox"
+                name="spaghetti"
+                id="checklist"
+                onChange={change}
+                />
+            </label>
+            <label> Cosmic Dust
+                <input 
+                checked={values.cosmicDust}
+                type="checkbox"
+                name="cosmicDust"
+                id="checklist"
+                onChange={change}
+                />
+            </label>
+            <label>
                 <input type="submit" value="submit" />
             </label> 
         </form>
