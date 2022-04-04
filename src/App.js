@@ -85,7 +85,7 @@ const App = () => {
       </header>
       <Switch>
         <Route path="/pizza">
-          {formError && <p className="error">{formError}</p> }
+          {formError}
           <OrderForm
             values={formValues}
             change={inputChange}

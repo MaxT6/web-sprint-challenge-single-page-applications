@@ -118,7 +118,7 @@ export default function OrderForm(props) {
                 />
             </label>
             <label>
-                <input type="submit" value="submit" />
+                <input type="submit" value="submit" id="order-button" />
             </label> 
         </form>
     </div>  
